@@ -18,7 +18,7 @@ public class InboxViewModel extends BaseObservable {
 
         // instantiating object of
         // model class
-        inboxModel = new InboxModel("","");
+        inboxModel = InboxModel.getInstance("","");
     }
 
     @Bindable
