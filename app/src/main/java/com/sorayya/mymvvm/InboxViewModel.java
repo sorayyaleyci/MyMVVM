@@ -21,19 +21,20 @@ public class InboxViewModel extends BaseObservable {
         inboxModel = new InboxModel("","");
     }
 
+    @Bindable
 
-    private String toastMessage = null;
+    private String toastMessagenw = null;
 
     // getter and setter methods
     // for toast message
 
-    public String getToastMessage() {
-        return toastMessage;
+    public String getToastMessagenw() {
+        return toastMessagenw;
     }
 
-    private void setToastMessage(String toastMessage) {
-        this.toastMessage = toastMessage;
-        notifyPropertyChanged(BR.toastMessage);
+    private void setToastMessagenw(String toastMessage) {
+        this.toastMessagenw = toastMessage;
+        notifyPropertyChanged(BR.toastMessagenw);
     }
     // getter and setter methods
     // for email variable
@@ -63,11 +64,11 @@ public class InboxViewModel extends BaseObservable {
     // actions to be performed
     // when user clicks
     // the LOGIN button
-    public void onButtonClicked() {
+    public void onButtonClickednew() {
         if (isValid())
-            setToastMessage(successMessage);
+            setToastMessagenw(successMessage);
         else
-            setToastMessage(errorMessage);
+            setToastMessagenw(errorMessage);
     }
 
     // method to keep a check
@@ -75,7 +76,7 @@ public class InboxViewModel extends BaseObservable {
     // not be kept empty by user
     public boolean isValid() {
         return !TextUtils.isEmpty(getDestinationEmail()) && Patterns.EMAIL_ADDRESS.matcher(getDestinationEmail()).matches()
-                && getUserMessage().length() > 5;
+                && getUserMessage().length() >7;
     }
 
 

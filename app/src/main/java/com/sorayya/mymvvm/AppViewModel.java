@@ -1,6 +1,4 @@
 package com.sorayya.mymvvm;
-
-import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -10,11 +8,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
-/*This class will contain all the methods which are needed to be called in the application layout.
- The ViewModel class will extend BaseObservable because it converts the data into streams and notifies
-  the View when the toast message property will change.
-
- */
 public class AppViewModel extends BaseObservable {
 
     // creating object of Model class
@@ -76,13 +69,10 @@ public class AppViewModel extends BaseObservable {
     // actions to be performed
     // when user clicks
     // the LOGIN button
-    public void onButtonClicked(View view) {
-        if (isValid()){
+    public void onButtonClicked() {
+        if (isValid())
+
             setToastMessage(successMessage);
-            Context context = view.getContext();
-            Intent intent = new Intent(context, AfterLoginActivity.class);
-            context.startActivity(intent);
-        }
         else
             setToastMessage(errorMessage);
     }
@@ -91,8 +81,12 @@ public class AppViewModel extends BaseObservable {
     // that variable fields must
     // not be kept empty by user
     public boolean isValid() {
-        return !TextUtils.isEmpty(getUserEmail()) && Patterns.EMAIL_ADDRESS.matcher(getUserEmail()).matches()
-                && getUserPassword().length() > 5;
+        String e=getUserEmail();
+        String re=getUserPassword();
+        boolean a= !TextUtils.isEmpty(getUserEmail());
+        boolean b=Patterns.EMAIL_ADDRESS.matcher(getUserEmail()).matches();
+        boolean c = getUserPassword().length() > 5;
+        boolean al=a && b && c;
+        return al;
     }
 }
-

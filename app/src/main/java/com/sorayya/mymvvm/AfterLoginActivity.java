@@ -24,7 +24,7 @@ public class AfterLoginActivity extends AppCompatActivity {
     // any change in toastMessage attribute
     // defined on the Button with bind prefix
     // invokes this method
-    @BindingAdapter({"toastMessage"})
+    @BindingAdapter({"toastMessagenw"})
     public static void runMe(View view, String message) {
         if (message != null)
             Toast.makeText(view.getContext(), message, Toast.LENGTH_SHORT).show();
